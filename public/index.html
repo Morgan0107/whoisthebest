@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;"></h1>대한민국 현대 대통령 중 최고의 대통령은?</h1>
+    
+    <div style="position: absolute; left: 0; top: 100px; width: 120px; height: 400px; background-color: #f0f0f0;"></div>
+    <div style="position: absolute; right: 0; top: 100px; width: 120px; height: 400px; background-color: #f0f0f0;"></div>
+    <div style="width: 100%; height: 100px; background-color: #f0f0f0; text-align: center; margin-top: 50px;">
+
+
+<audio id="soundEffect" src="sound.mp3"></audio>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Click Game</title>
+  <style>
+    .player {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+    img {
+      width: 150px;
+      cursor: pointer;
+    }
+      #game {
+    text-align: center;         /* 🔴 */
+    margin-top: 30px;           /* 🔴 */
+    }
+  </style>
+</head>
+<body>
+
+<div id="game">
+  <div class="player">
+    <img id="imgA" src="img/IMG_1432.WEBP" onclick="handleClick('A')" />
+    <p>A: <span id="scoreA">0</span></p>
+  </div>
+  <div class="player">
+    <img id="imgB" src="img/IMG_1436.JPG" onclick="handleClick('B')" />
+    <p>B: <span id="scoreB">0</span></p>
+  </div>
+  <div class="player">
+    <img id="imgC" src="img/IMG_1440.PNG" onclick="handleClick('C')" />
+    <p>C: <span id="scoreC">0</span></p>
+  </div>
+  <div class="player">
+    <img id="imgD" src="img/IMG_1435.JPG" onclick="handleClick('D')" />
+    <p>D: <span id="scoreD">0</span></p>
+  </div>
+  <div class="player">
+    <img id="imgE" src="img/IMG_1438.JPG" onclick="handleClick('E')" />
+    <p>E: <span id="scoreE">0</span></p>
+  </div>
+</div>
+
+<audio id="soundA" src="sou/야.mp3"></audio> 
+<audio id="soundB" src="sou/거.mp3"></audio> 
+<audio id="soundC" src="sou/존.mp3"></audio> 
+<audio id="soundD" src="sou/훠.mp3"></audio> 
+<audio id="soundE" src="sou/에.mp3"></audio> 
+<script>
+  // 이미지 주소 맵핑
+  const players = {
+    A: {
+      original:  "img/IMG_1432.WEBP",
+      changed: "img/IMG_1433.JPG",
+      score: 0
+    },
+    B: {
+      original: src="img/IMG_1436.JPG",
+      changed: "img/IMG_1437.jpg",
+      score: 0
+    },
+    C: {
+      original: "img/IMG_1440.PNG",
+      changed: "img/IMG_1441.jpg",
+      score: 0
+    },
+    D: {
+      original: "img/IMG_1435.JPG",
+      changed: "img/IMG_1434.JPG",
+      score: 0
+    },
+    E: {
+      original: "img/IMG_1438.JPG",
+      changed: "img/IMG_1439.JPG",
+      score: 0
+    },
+  };
+
+  function handleClick(playerKey) {
+    const img = document.getElementById("img" + playerKey);
+    const scoreEl = document.getElementById("score" + playerKey);
+    const sound = document.getElementById("sound" + playerKey); 
+
+    // 소리 재생
+    sound.currentTime = 0;
+    sound.play();
+
+    // 이미지 바꾸기
+    img.src = players[playerKey].changed;
+
+    // 점수 증가
+    players[playerKey].score++;
+    scoreEl.textContent = players[playerKey].score;
+
+    // 0.5초 후 원래 이미지로 복구
+    setTimeout(() => {
+      img.src = players[playerKey].original;
+    }, 100);
+  }
+</script>
+
+</body>
+</html>
